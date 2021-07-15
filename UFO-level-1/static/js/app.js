@@ -22,3 +22,18 @@ data.forEach(function(dataRow){
            
     };
     d3.select("#filter-btn").on("click", submitHandler);    
+
+    //mix of two codes
+    function submitHandler(){
+        d3.event.preventDefault();
+        var inputValue = d3.select("#datetime").property("value");
+        data.forEach(function(dataRow){
+    var table = d3.select("#ufo-table")
+    var table_body = d3.select("tbody")
+    var newRow = table_body.append("tr")
+    Object.values(dataRow).forEach(colValue => {
+            newRow.append("td").text(colValue);
+        });
+    });
+};
+    d3.select("#filter-btn").on("click", submitHandler);
