@@ -1,35 +1,29 @@
 // from data.js
 var tableData = data;
 
+
 // YOUR CODE HERE!
 
-//code to display data into the table
-data.forEach(function(dataRow){
-    var table = d3.select("#ufo-table")
-    var table_body = d3.select("tbody")
-    var newRow = table_body.append("tr")
-    Object.values(dataRow).forEach(colValue => {
-            newRow.append("td").text(colValue);
-        });
-    });
 
-//code to click_handler
-    function submitHandler(){
-        d3.event.preventDefault();
-        var inputValue = d3.select("#datetime").property("value");
-        filteredData = data.filter(ufo1 => ufo1.Date === inputValue)
-        console.log(inputValue)
-           
-    };
-    d3.select("#filter-btn").on("click", submitHandler);    
+    //updated code
+    // clearBox("table-area");
 
-    //mix of two codes
     function submitHandler(){
+        // var table = d3.select("#ufo-table");
+//or use :  var table = document.all.tableid;
+
+       
+        // clearBox("table-area");
         d3.event.preventDefault();
+        var table = d3.select("#ufo-table")
+        
         var inputValue = d3.select("#datetime").property("value");
-        data.forEach(function(dataRow){
+        filteredDate = data.filter(ufo1 => ufo1.datetime === inputValue)
+
+        filteredDate.forEach(function(dataRow){
     var table = d3.select("#ufo-table")
-    var table_body = d3.select("tbody")
+    
+      var table_body = d3.select("tbody")
     var newRow = table_body.append("tr")
     Object.values(dataRow).forEach(colValue => {
             newRow.append("td").text(colValue);
@@ -37,3 +31,4 @@ data.forEach(function(dataRow){
     });
 };
     d3.select("#filter-btn").on("click", submitHandler);
+    
