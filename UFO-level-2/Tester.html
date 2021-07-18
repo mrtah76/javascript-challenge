@@ -1,0 +1,27 @@
+var example_array = {
+    ValueA : 'Text A',
+    ValueB : 'Text B',
+    ValueC : 'Text C'
+};
+
+var select = document.getElementById("example-select");
+for(index in example_array) {
+    select.options[select.options.length] = new Option(example_array[index], index);
+}
+
+<form id="myForm">
+    <select id="selectNumber">
+      <option>Choose a number</option>
+    </select>
+  </form>
+
+  var select = document.getElementById("selectNumber"); 
+var options = ["1", "2", "3", "4", "5"]; 
+
+for(var i = 0; i < options.length; i++) {
+    var opt = options[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+}​
